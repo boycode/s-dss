@@ -8,7 +8,7 @@
 	
     <import resource="classpath*:dataflue-insight-service-context.xml"/>
  
-	<context:component-scan base-package="com.dataflue.cip.api" />
+	<context:component-scan base-package="com.dataflue.cip" />
 	
  
 </beans>

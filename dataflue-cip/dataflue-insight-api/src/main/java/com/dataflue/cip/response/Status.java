@@ -1,6 +1,7 @@
 package com.dataflue.cip.response;
 
 import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 
  * @author Vishnu sankar
@@ -14,7 +15,7 @@ public class Status {
 	 * 
 	 */
 	private String message;
-	
+
 	/**
 	 * 
 	 * @return
@@ -22,6 +23,7 @@ public class Status {
 	public String getCode() {
 		return code;
 	}
+
 	/**
 	 * 
 	 * @param code
@@ -29,6 +31,7 @@ public class Status {
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -36,6 +39,7 @@ public class Status {
 	public String getMessage() {
 		return message;
 	}
+
 	/**
 	 * 
 	 * @param message
@@ -43,5 +47,5 @@ public class Status {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 }

@@ -8,22 +8,22 @@ import org.codehaus.jettison.json.JSONObject;
 
 /**
  * 
- * ErrorStatus Builder for creating response builder for ErrorStatus and ErrorStatus handling
- * conditions
+ * ErrorStatus Builder for creating response builder for ErrorStatus and
+ * ErrorStatus handling conditions
  * 
  * @author Vishnu Sankar
  * @since 1.0
  * 
  */
-@XmlRootElement(name="errorStatus")
-public class ErrorStatus{
+@XmlRootElement(name = "errorStatus")
+public class ErrorStatus {
 
 	@XmlElement(name = "errorStatuscode")
 	private String errorStatusCode;
 
 	@XmlElement(name = "errorStatusmessage")
 	private String errorStatusMessage;
-	
+
 	/**
 	 * 
 	 */
@@ -39,7 +39,7 @@ public class ErrorStatus{
 		this.errorStatusCode = errorStatusCode;
 		this.errorStatusMessage = errorStatusMessage;
 	}
-	
+
 	/**
 	 * To return response in JSON format({"a":"b"})
 	 * 

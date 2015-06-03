@@ -9,10 +9,10 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.dataflue.cip.response.Status;
-import com.dataflue.cip.services.impl.GenericTagRetrivalService;
+import com.dataflue.cip.response.builder.RecommendationTagBuilder;
+
 /**
- * Description TODO
+ * Description TODO Generic Holder for the recommendation retrieval
  * 
  * @author Vishnu Sankar
  *
@@ -22,22 +22,24 @@ import com.dataflue.cip.services.impl.GenericTagRetrivalService;
 public class RecommendationTagRetrive {
 
 	@Autowired
-	GenericTagRetrivalService tagRetrivalService;
-	
+	private RecommendationTagBuilder recommendationTagBuilder;
+
 	/**
-	 *  Description TODO
-	 *  
+	 * Description TODO Any Arguments can be passed to the next tier.
+	 * 
+	 * Standard Format will define soon : Include- GET /POST Params with the
+	 * Unique ID / DataModel / Limit
+	 * 
+	 * 
 	 * @return Response
 	 */
 	@GET
 	@Path("/test")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response savePayment() {
-		String result = tagRetrivalService.returnRecommendationTag();
-		Status status = new Status();
-		status.setCode("1000");
-		status.setMessage("Insight Provider : Successful Recommendation Tag Generated" +result);
-		return Response.status(200).entity(status).build();
+		Object buildRecommendation = recommendationTagBuilder
+				.buildRecommendation("Hello");
+		return Response.status(200).entity(buildRecommendation).build();
 
 	}
 

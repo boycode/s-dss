@@ -1,6 +1,5 @@
 package com.dataflue.cip.utils;
 
-
 /**
  * This interface provides the static message needed for the application
  * 
@@ -17,5 +16,4 @@ public interface Messages {
 	public static final String AUTH_FAILED_MESSAGE = " Authorization failed for the request";
 	public static final String CONTENT_BUILDING_EXCEPTION_MESSAGE = "Exception happended while buiding the content";
 
-	
 }
