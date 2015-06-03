@@ -19,6 +19,9 @@ public enum ErrorStatusMessageEnum {
 	CONTENT_BUILDING_EXCEPTION(1005,Messages.CONTENT_BUILDING_EXCEPTION_MESSAGE);
 	
 	
+	
+	
+	
 	private Integer code;
 	private String message;
 	/**
