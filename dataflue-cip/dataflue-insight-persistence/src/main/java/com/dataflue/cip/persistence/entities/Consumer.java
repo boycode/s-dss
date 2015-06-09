@@ -30,7 +30,14 @@ public class Consumer {
 	private String consumerAddress;
 	
 	
-	
+	/**
+	 * Specifically for test database   
+	 */
+	public Consumer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Consumer(int consumerId, String consumerName, String consumerKey,
 			String consumerAddress) {
 		super();
