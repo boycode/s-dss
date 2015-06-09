@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>com.dataflue.cip.persistence</groupId>
 			<artifactId>dataflue-insight-persistence</artifactId>
-			<version>${parent.version}</version>
+			<version>${project.parent.version}</version>
 		</dependency>
 		<!-- Third Party Dependecies -->
 		<dependency>

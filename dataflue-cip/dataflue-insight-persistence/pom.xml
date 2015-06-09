@@ -107,6 +107,13 @@
 			<version>${mysql.version}</version>
 		</dependency>
 
+		<!-- Hikari Connection Pool -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP-java6</artifactId>
+			<version>2.3.5</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- Unit Test for DB -->
 
 		<dependency>

@@ -7,12 +7,37 @@
 
 	<jpa:repositories base-package="com.dataflue.cip.persistence" />
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost/test" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+	<!-- Use with out Hikari CPM -->
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+		name="url" value="jdbc:mysql://localhost/test" /> <property name="username" 
+		value="root" /> <property name="password" value="" /> </bean> <bean id="dataSource" 
+		class="com.zaxxer.hikari.HikariDataSource"> <property name="driverClassName" 
+		value="com.mysql.jdbc.Driver" /> <property name="url" value="jdbc:mysql://localhost/test" 
+		/> <property name="username" value="root" /> <property name="password" value="" 
+		/> </bean> -->
+	<!-- Hikari Configuartion -->
+
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="poolName" value="springHikariCP" />
+		<property name="connectionTestQuery" value="SELECT 1" />
+		<property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+		<property name="maximumPoolSize" value="10" />
+		<property name="idleTimeout" value="30000" />
+
+		<property name="dataSourceProperties">
+			<props>
+				<prop key="url">jdbc:mysql://localhost/test</prop>
+				<prop key="user">root</prop>
+				<prop key="password"></prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
 	</bean>
 
 	<bean id="jpaVendorAdapter"

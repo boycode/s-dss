@@ -34,7 +34,10 @@ public class ConsumerRepositoryTest {
 
 	@Autowired
 	private ConsumerRepository repository;
-
+	
+	/**
+	 * Minimal Integration Test - Connection - Hikari Source
+	 */
 	@Test
 	public void search_NoTodoEntriesFound_ShouldReturnEmptyList() {
 		List<Consumer> todoEntries = repository.search("NOT FOUND");
