@@ -6,6 +6,7 @@
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<jpa:repositories base-package="com.dataflue.cip.persistence" />
+	
 
 	<!-- Use with out Hikari CPM -->
 
@@ -49,12 +50,25 @@
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="my-jpa" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 		<!-- spring based scanning for entity classes -->
 		<property name="packagesToScan" value="com.dataflue.cip.persistence" />
+		<property name="jpaProperties">
+        <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+             <!--..... -->
+            <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+            <prop key="hibernate.cache.use_second_level_cache">true</prop>
+            <prop key="hibernate.cache.use_query_cache">true</prop>
+            <prop key="javax.persistence.sharedCache.mode">ENABLE_SELECTIVE</prop>
+        </props>
+    </property>
 	</bean>
-
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" />
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 </beans>
